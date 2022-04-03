@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     22193,        657]
-NotebookOptionsPosition[     19262,        564]
-NotebookOutlinePosition[     19775,        582]
-CellTagsIndexPosition[     19732,        579]
+NotebookDataLength[     28761,        841]
+NotebookOptionsPosition[     25465,        738]
+NotebookOutlinePosition[     25948,        755]
+CellTagsIndexPosition[     25905,        752]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -138,18 +138,23 @@ Cell["Basic Arithmetic", "Section",
 Cell["\<\
 Standard + - * / ^ work as expected
 
-Use () or {} as delimiters (do not use [])
+Use ( ) or { } as delimiters (do not use [ ])
 
-Use CTRL + ^ or CTRL + / for graphic interpretation of exponent/division\
+Use \[OpenCurlyDoubleQuote]CTRL + ^\[CloseCurlyDoubleQuote] or \
+\[OpenCurlyDoubleQuote]CTRL + /\[CloseCurlyDoubleQuote] for graphic \
+interpretation of exponent/division\
 \>", "Text",
  CellChangeTimes->{{3.857958543230859*^9, 3.8579586435613246`*^9}, {
-  3.8579587209799976`*^9, 3.857958721556547*^9}}],
+  3.8579587209799976`*^9, 3.857958721556547*^9}, {3.8579741652822905`*^9, 
+  3.8579741793738823`*^9}}],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"fraction", " ", "=", " ", 
-   FractionBox["num", "denom"]}], ";"}]], "Input",
- CellChangeTimes->{{3.857958729892125*^9, 3.8579587425657883`*^9}}],
+   FractionBox[
+    SuperscriptBox["num", "power"], "denom"]}], ";"}]], "Input",
+ CellChangeTimes->{{3.857958729892125*^9, 3.8579587425657883`*^9}, {
+  3.857974191953844*^9, 3.8579741950912895`*^9}}],
 
 Cell["Space between defaults to multiplication", "Text",
  CellChangeTimes->{3.857958724590414*^9}],
@@ -175,8 +180,7 @@ Cell[BoxData[{
  RowBox[{"expression", " ", "=", " ", 
   RowBox[{
    RowBox[{"e", "^", "2"}], "+", 
-   RowBox[{"f", "^", "2"}], "+", 
-   RowBox[{"m", " ", "x"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{"f", "^", "2"}]}]}], "\[IndentingNewLine]", 
  RowBox[{"expression", " ", "/.", " ", 
   RowBox[{"e", "\[Rule]", "4"}]}], "\[IndentingNewLine]", 
  RowBox[{"expression", " ", "/.", " ", 
@@ -184,7 +188,8 @@ Cell[BoxData[{
    RowBox[{
     RowBox[{"e", "\[Rule]", "4"}], ",", " ", 
     RowBox[{"f", "\[Rule]", "3"}]}], "}"}]}]}], "Input",
- CellChangeTimes->{{3.8579588358442535`*^9, 3.8579588769080048`*^9}}]
+ CellChangeTimes->{{3.8579588358442535`*^9, 3.8579588769080048`*^9}, {
+  3.8579742168826585`*^9, 3.857974217429053*^9}}]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -497,25 +502,22 @@ Cell["Plotting", "Section",
  CellChangeTimes->{{3.857957985946381*^9, 3.8579579929251328`*^9}}],
 
 Cell["\<\
-Plotting essentially has the same syntax across all plotting types:
-
-Plots can also be saved as variables and combined/tweaked using \
-Show[plot,options]
-
-See documentation of Plot for all parameters you can play with\
+Plotting essentially has the same syntax across almost all plotting types \
+Plot[function, range/s]\
 \>", "Text",
  CellChangeTimes->{{3.857957994645594*^9, 3.8579580116941414`*^9}, {
   3.8579580630995436`*^9, 3.85795807813873*^9}, {3.857958120822399*^9, 
-  3.8579581293528013`*^9}, {3.8579582284745455`*^9, 3.85795824221202*^9}}],
+  3.8579581293528013`*^9}, {3.8579582284745455`*^9, 3.85795824221202*^9}, {
+  3.8579748541382914`*^9, 3.8579748916440253`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"function1", " ", "=", " ", 
+  RowBox[{"function1", "=", " ", 
    RowBox[{
     RowBox[{"x", "^", "3"}], "+", 
     RowBox[{"Sin", "[", "x", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"function2", " ", "=", 
+  RowBox[{"function2", "=", 
    RowBox[{"x", "^", "2"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"function3", "=", 
@@ -528,7 +530,8 @@ Cell[BoxData[{
     RowBox[{"x", ",", "1", ",", "2"}], "}"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.857958014652915*^9, 3.8579580411825466`*^9}, {
   3.8579580837432566`*^9, 3.857958117794774*^9}, {3.8579582579075356`*^9, 
-  3.8579583568937597`*^9}, {3.8579584067465487`*^9, 3.8579584069182262`*^9}}],
+  3.8579583568937597`*^9}, {3.8579584067465487`*^9, 3.8579584069182262`*^9}, {
+  3.8579743137928085`*^9, 3.8579743153532643`*^9}}],
 
 Cell[BoxData[
  RowBox[{"StreamPlot", "[", 
@@ -558,14 +561,184 @@ Cell[BoxData[{
    RowBox[{"{", 
     RowBox[{"t", ",", "0", ",", 
      RowBox[{"2", " ", "Pi"}]}], "}"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.857958412532497*^9, 3.85795849804727*^9}}]
+ CellChangeTimes->{{3.857958412532497*^9, 3.85795849804727*^9}}],
+
+Cell["\<\
+Plots can also be saved as variables and combined/tweaked using \
+Show[plot,options]
+
+See documentation of Plot[] for all parameters you can play with\
+\>", "Text",
+ CellChangeTimes->{3.857974895677026*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"h", "[", 
+    RowBox[{"x_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"x", "^", "2"}]}], "/", "t"}], "]"}], "/", "t"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p1", "=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"h", "[", 
+      RowBox[{"x", ",", "0.1"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"t", "=", "0.1"}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p2", "=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"h", "[", 
+      RowBox[{"x", ",", "0.5"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"t", "=", "0.5"}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"p1", ",", "p2"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "10"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8579750026670837`*^9, 3.857975020803892*^9}, {
+  3.85797508490831*^9, 3.8579750978508344`*^9}, {3.8579751995255823`*^9, 
+  3.8579754304905148`*^9}, {3.857975462316909*^9, 3.857975483040701*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Manipulate and Animations", "Section",
+ CellChangeTimes->{{3.857974230296465*^9, 3.857974233100798*^9}, {
+  3.857978563648903*^9, 3.8579785666028137`*^9}}],
+
+Cell["\<\
+Manipulate[] can be used to visualise the effect of parameters on a function. \
+Clicking the + will allow you to automatically step through the animation. \
+Animate[] can also do this.\
+\>", "Text",
+ CellChangeTimes->{{3.857974254196528*^9, 3.8579742954714823`*^9}, {
+  3.857976644948566*^9, 3.8579766667407727`*^9}, {3.85797670410524*^9, 
+  3.857976710064587*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"function4", "[", 
+    RowBox[{"x_", ",", "y_", ",", "a_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"a", " ", 
+     RowBox[{"x", "^", "2"}]}], "+", 
+    RowBox[{"y", "^", "2"}]}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot3D", "[", 
+    RowBox[{
+     RowBox[{"function4", "[", 
+      RowBox[{"x", ",", "y", ",", "a"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "2"}], ",", "10"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.8579743028465123`*^9, 3.857974328356292*^9}, {
+  3.857974366095693*^9, 3.857974452840111*^9}, {3.857974526549932*^9, 
+  3.8579745745925484`*^9}, {3.857974611469322*^9, 3.8579746635167627`*^9}, {
+  3.8579766271894193`*^9, 3.8579766392304068`*^9}}],
+
+Cell["\<\
+If you want to make smooth GIFs, or plot more complicated functions, it can \
+get quite laggy since you don\[CloseCurlyQuote]t cache the plots. To cache, \
+we can generate a list of these plots, and then stitch them together to see \
+or export as a GIF\
+\>", "Text",
+ CellChangeTimes->{{3.8579756418865128`*^9, 3.85797572736569*^9}, {
+  3.8579767539555097`*^9, 3.8579767780534787`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"function5", "[", 
+    RowBox[{"x_", ",", "y_", ",", "t_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"x", "-", "t"}], ")"}], "^", "2"}], "+", 
+         RowBox[{"y", "^", "2"}]}], ")"}]}], "/", "t"}], "]"}], "/", "t"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"animSlides", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Plot3D", "[", 
+      RowBox[{
+       RowBox[{"function5", "[", 
+        RowBox[{"x", ",", "y", ",", "t"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "2"}], "}"}]}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0.05", ",", "3", ",", "0.01"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.85797573539279*^9, 3.8579757397479353`*^9}, {
+  3.8579769035266495`*^9, 3.8579769055813503`*^9}, {3.857976962585743*^9, 
+  3.857977035191176*^9}, {3.8579770763780537`*^9, 3.857977077460984*^9}, {
+  3.857977148875245*^9, 3.8579771510986032`*^9}, {3.8579777082822905`*^9, 
+  3.857977759107149*^9}, {3.857977895633407*^9, 3.857977895749892*^9}, {
+  3.857977949879981*^9, 3.8579779503933935`*^9}, {3.8579780589233522`*^9, 
+  3.8579780596117067`*^9}, {3.857978091830952*^9, 3.857978169863563*^9}, {
+  3.85797821222471*^9, 3.8579782185398965`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ListAnimate", "[", "animSlides", "]"}]], "Input",
+ CellChangeTimes->{{3.857977044474943*^9, 3.8579770478735085`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<moving_mass_conc.gif\>\"", ",", "animSlides"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8579783499184165`*^9, 3.8579783702940245`*^9}, {
+  3.8579784390831585`*^9, 3.857978440624997*^9}}]
 }, Closed]]
 }, Open  ]]
 },
 WindowSize->{766, 764},
 WindowMargins->{{Automatic, -7}, {Automatic, 0}},
 TaggingRules->{ScrollPosition -> {0., 12.}, "$testsRun" -> False},
-Magnification:>0.9 Inherited,
 FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (February 25, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Report"}, "StandardReport.nb", 
   CharacterEncoding -> "UTF-8"]
@@ -582,86 +755,95 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 110, 1, 89, "Title"],
+Cell[580, 22, 110, 1, 99, "Title"],
 Cell[CellGroupData[{
-Cell[715, 27, 154, 2, 63, "Section"],
-Cell[872, 31, 148, 2, 28, "Text"],
-Cell[1023, 35, 193, 3, 37, "Input"],
-Cell[1219, 40, 166, 2, 28, "Text"],
-Cell[1388, 44, 326, 8, 98, "Input"],
-Cell[1717, 54, 128, 1, 28, "Text"],
-Cell[1848, 57, 355, 9, 37, "Input"],
-Cell[2206, 68, 294, 5, 28, "Text"],
-Cell[2503, 75, 372, 9, 37, "Input"]
+Cell[715, 27, 154, 2, 72, "Section"],
+Cell[872, 31, 148, 2, 31, "Text"],
+Cell[1023, 35, 193, 3, 41, "Input"],
+Cell[1219, 40, 166, 2, 31, "Text"],
+Cell[1388, 44, 326, 8, 109, "Input"],
+Cell[1717, 54, 128, 1, 31, "Text"],
+Cell[1848, 57, 355, 9, 41, "Input"],
+Cell[2206, 68, 294, 5, 31, "Text"],
+Cell[2503, 75, 372, 9, 41, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[2912, 89, 447, 6, 51, "Section"],
-Cell[3362, 97, 445, 9, 141, "Text"],
-Cell[3810, 108, 314, 5, 78, "Input"],
-Cell[4127, 115, 152, 2, 28, "Text"],
-Cell[4282, 119, 451, 10, 78, "Input"]
+Cell[2912, 89, 447, 6, 58, "Section"],
+Cell[3362, 97, 445, 9, 157, "Text"],
+Cell[3810, 108, 314, 5, 87, "Input"],
+Cell[4127, 115, 152, 2, 31, "Text"],
+Cell[4282, 119, 451, 10, 87, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[4770, 134, 103, 1, 51, "Section"],
-Cell[4876, 137, 296, 8, 103, "Text"],
-Cell[5175, 147, 180, 4, 56, "Input"],
-Cell[5358, 153, 98, 1, 28, "Text"],
-Cell[5459, 156, 308, 7, 78, "Input"],
-Cell[5770, 165, 313, 6, 47, "Text"],
-Cell[6086, 173, 528, 13, 78, "Input"]
+Cell[4770, 134, 103, 1, 58, "Section"],
+Cell[4876, 137, 450, 11, 106, "Text"],
+Cell[5329, 150, 261, 6, 63, "Input"],
+Cell[5593, 158, 98, 1, 30, "Text"],
+Cell[5694, 161, 308, 7, 81, "Input"],
+Cell[6005, 170, 313, 6, 49, "Text"],
+Cell[6321, 178, 545, 13, 81, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[6651, 191, 146, 2, 51, "Section"],
-Cell[6800, 195, 225, 5, 63, "Text"],
-Cell[7028, 202, 906, 22, 63, "Input"],
-Cell[7937, 226, 152, 3, 63, "Text"],
-Cell[8092, 231, 422, 10, 63, "Input"]
+Cell[6903, 196, 146, 2, 58, "Section"],
+Cell[7052, 200, 225, 5, 63, "Text"],
+Cell[7280, 207, 906, 22, 63, "Input"],
+Cell[8189, 231, 152, 3, 63, "Text"],
+Cell[8344, 236, 422, 10, 63, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[8551, 246, 152, 2, 51, "Section"],
-Cell[8706, 250, 112, 1, 63, "Text"],
-Cell[8821, 253, 549, 12, 63, "Input"],
-Cell[9373, 267, 257, 6, 63, "Input"],
-Cell[9633, 275, 137, 1, 63, "Text"],
-Cell[9773, 278, 494, 13, 63, "Input"]
+Cell[8803, 251, 152, 2, 58, "Section"],
+Cell[8958, 255, 112, 1, 63, "Text"],
+Cell[9073, 258, 549, 12, 63, "Input"],
+Cell[9625, 272, 257, 6, 63, "Input"],
+Cell[9885, 280, 137, 1, 63, "Text"],
+Cell[10025, 283, 494, 13, 63, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[10304, 296, 104, 1, 51, "Section"],
-Cell[10411, 299, 124, 1, 63, "Text"],
-Cell[10538, 302, 463, 12, 63, "Input"],
-Cell[11004, 316, 134, 1, 63, "Text"],
-Cell[11141, 319, 556, 10, 63, "Input"],
-Cell[11700, 331, 180, 2, 63, "Text"],
-Cell[11883, 335, 130, 2, 63, "Input"]
+Cell[10556, 301, 104, 1, 58, "Section"],
+Cell[10663, 304, 124, 1, 63, "Text"],
+Cell[10790, 307, 463, 12, 63, "Input"],
+Cell[11256, 321, 134, 1, 63, "Text"],
+Cell[11393, 324, 556, 10, 63, "Input"],
+Cell[11952, 336, 180, 2, 63, "Text"],
+Cell[12135, 340, 130, 2, 63, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[12050, 342, 135, 1, 51, "Section"],
-Cell[12188, 345, 106, 1, 63, "Text"],
-Cell[12297, 348, 592, 18, 63, "Input"],
-Cell[12892, 368, 138, 3, 63, "Text"],
-Cell[13033, 373, 346, 10, 63, "Input"],
-Cell[13382, 385, 218, 5, 63, "Text"],
-Cell[13603, 392, 346, 10, 63, "Input"],
-Cell[13952, 404, 193, 4, 63, "Text"],
-Cell[14148, 410, 518, 13, 63, "Input"]
+Cell[12302, 347, 135, 1, 58, "Section"],
+Cell[12440, 350, 106, 1, 63, "Text"],
+Cell[12549, 353, 592, 18, 63, "Input"],
+Cell[13144, 373, 138, 3, 63, "Text"],
+Cell[13285, 378, 346, 10, 63, "Input"],
+Cell[13634, 390, 218, 5, 63, "Text"],
+Cell[13855, 397, 346, 10, 63, "Input"],
+Cell[14204, 409, 193, 4, 63, "Text"],
+Cell[14400, 415, 518, 13, 63, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[14703, 428, 180, 2, 51, "Section"],
-Cell[14886, 432, 342, 6, 47, "Text"],
-Cell[15231, 440, 987, 27, 118, "Input"],
-Cell[16221, 469, 689, 21, 86, "Input"]
+Cell[14955, 433, 180, 2, 58, "Section"],
+Cell[15138, 437, 342, 6, 47, "Text"],
+Cell[15483, 445, 987, 27, 118, "Input"],
+Cell[16473, 474, 689, 21, 86, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[16947, 495, 95, 1, 51, "Section"],
-Cell[17045, 498, 457, 10, 63, "Text"],
-Cell[17505, 510, 794, 20, 63, "Input"],
-Cell[18302, 532, 391, 11, 63, "Input"],
-Cell[18696, 545, 538, 15, 63, "Input"]
+Cell[17199, 500, 95, 1, 58, "Section"],
+Cell[17297, 503, 392, 7, 30, "Text"],
+Cell[17692, 512, 837, 21, 121, "Input"],
+Cell[18532, 535, 391, 11, 40, "Input"],
+Cell[18926, 548, 538, 15, 61, "Input"],
+Cell[19467, 565, 216, 6, 68, "Text"],
+Cell[19686, 573, 1527, 46, 101, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[21250, 624, 161, 2, 58, "Section"],
+Cell[21414, 628, 375, 7, 49, "Text"],
+Cell[21792, 637, 1175, 33, 121, "Input"],
+Cell[22970, 672, 396, 7, 68, "Text"],
+Cell[23369, 681, 1682, 43, 101, "Input"],
+Cell[25054, 726, 141, 2, 40, "Input"],
+Cell[25198, 730, 239, 4, 40, "Input"]
 }, Closed]]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
