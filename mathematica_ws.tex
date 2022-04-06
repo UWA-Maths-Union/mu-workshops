@@ -17,6 +17,7 @@
 
 \title{UWA MU Mathematica WS Examples}
 \date{April 7,2022}
+\author{MU - Dathan Tran}
 \begin{document}
 \maketitle
 \begin{questions}
@@ -39,7 +40,7 @@
             \part Use \lstinline[columns=fixed]{Eigensystem[]} to determine the eigenvalues and eigenvectors of $A$
         \end{parts}
     \question Consider $f(x_y)=y^2+x^2(1+2y)$. Use Mathematica to determine $f_{xx},f_{yy}$ and $f_{xy}$.
-    \question Let $f_1(x,y)=3x^9+5y^2, f_2(x,y)=6x^7+2y^8$. Determine the Jacobian Matrix of $f=\left(\begin{array}[1]{c} f(x,y) \\ f(x,y)\end{array}\right)$. It may be useful to define $f$ as 
+    \question Let $f_1(x,y)=3x^9+5y^2, f_2(x,y)=6x^7+2y^8$. Determine the Jacobian Matrix of $f=\left(\begin{array}[1]{c} f_1(x,y) \\ f_2(x,y)\end{array}\right)$. It may be useful to define $f$ as 
     \begin{lstlisting}
         f = {f1,f2}
     \end{lstlisting}
@@ -53,5 +54,10 @@
 
     \question Plot the vector field $f(x,y)=(\sin(x)\cos(y)+x^2,x+y)$ using \lstinline[columns=fixed]{StreamPlot[]} and \lstinline[columns=fixed]{VectorPlot[]}.
 
+    \question Plot the surface $z=\dfrac{\sin(\sqrt{x^2+y^2+c^2})}{\sqrt{x^2+y^2+c^2}}$ for
+        \begin{parts}
+            \part c=1 using \lstinline[columns=fixed]{Plot3D[]}
+            \part $c\in (1,10)$ using \lstinline[columns=fixed]{Manipulate[]} or \lstinline[columns=fixed]{Animate[]} to visualise how $c$ changes the function
+        \end{parts}
 \end{questions}
 \end{document}
