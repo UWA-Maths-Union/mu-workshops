@@ -1,0 +1,57 @@
+\documentclass{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+
+\lstset{language=Mathematica}
+
+\title{UWA MU Mathematica WS Examples}
+\date{April 7,2022}
+\begin{document}
+\maketitle
+\begin{questions}
+
+    \question Determine the limit $\displaystyle\lim_{x\to0} \frac{a^x-1}{x}$ using \lstinline[columns=fixed]{Limit[]} (use \lstinline[columns=fixed]{f1} to see how to use this function!) 
+    \question Define $f(x,y)=\sin(x)\tan(y)-x^2\sqrt{y}$. Use Mathematica to determine $f(1,2),f(1,3),f(0.5,5)$
+    \question Consider the curves $C_1$ and $C_2$ defined by $\mathbf{r}_1(s)=(1-s,s,3+s^2), s\in \R$ and $\mathbf{r}_2(t)=(t-2,3-t,t^2), t\in \R$ respectively.
+
+    \begin{parts} 
+        \part Construct $\mathbf{r}_1(s)$ and $\mathbf{r}_2(t)$ as vectors in Mathematica
+        \part Solve for $P$, the single intersection of the two curves, and the values of $s$ and $t$ using \lstinline[columns=fixed]{Solve[]} (you may want to look up the documentation of \lstinline[columns=fixed]{Solve[]} using \lstinline[columns=fixed]{f1})
+        \part Determine the angle between the tangent vectors at point $P$ using Mathematica. 
+    \end{parts}
+
+    \question
+        Consider the matrix $A=\left(\begin{array}[2]{cc} 1 & 4 \\ 3 & 2\end{array}\right)$. 
+        \begin{parts}
+            \part Determine $A^{30}$ and use \lstinline[columns=fixed]{MatrixForm[]} to view the matrix
+            \part Determine $A^{-1}$ using \lstinline[columns=fixed]{Inverse[]}
+            \part Use \lstinline[columns=fixed]{Eigensystem[]} to determine the eigenvalues and eigenvectors of $A$
+        \end{parts}
+    \question Consider $f(x_y)=y^2+x^2(1+2y)$. Use Mathematica to determine $f_{xx},f_{yy}$ and $f_{xy}$.
+    \question Let $f_1(x,y)=3x^9+5y^2, f_2(x,y)=6x^7+2y^8$. Determine the Jacobian Matrix of $f=\left(\begin{array}[1]{c} f(x,y) \\ f(x,y)\end{array}\right)$. It may be useful to define $f$ as 
+    \begin{lstlisting}
+        f = {f1,f2}
+    \end{lstlisting}
+    And using \lstinline[columns=fixed]{Grad[]} on \lstinline[columns=fixed]{f}.
+
+    \question Evaluate the integral $\displaystyle\int_1^a \dfrac{e^{-ax}}{\sqrt{a}x}\mathrm{d}x$ for $a=2,3,4$ to 2SF.
+
+    \question Plot $f(x)=\sin(x^2)\,x^2$ for $x\in(-3,3)$ and rescale the plot vertically to be between $(0,8)$ using \lstinline[columns=fixed]{PlotRange}
+
+    \question Plot $x(x-a)^3$ for $a=1,2,3$ on the same plot and make their curves blue, green and red respectively using \lstinline[columns=fixed]{PlotStyle}.
+
+    \question Plot the vector field $f(x,y)=(\sin(x)\cos(y)+x^2,x+y)$ using \lstinline[columns=fixed]{StreamPlot[]} and \lstinline[columns=fixed]{VectorPlot[]}.
+
+\end{questions}
+\end{document}
