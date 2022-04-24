@@ -1,5 +1,6 @@
 \documentclass{beamer}
 
+% \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -79,12 +80,14 @@
         \item Commands may sometime require \emph{arguments} given using curly brackets \{\} or square brackets [ ]
     \end{itemize}
     \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
+\[
 \left|
 \begin{array}{cc}
      2-\lambda & 0\\
      4 & 3-\lambda\\
 \end{array}
 \right|
+\]
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
@@ -370,7 +373,7 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
         $\rangle$ & \verb|\rangle|\\
         $\{$      & \verb|\{|\\
         $\}$      & \verb|\}|\\
-        $\|$      & \verb|\|\mid\\
+        $\|$      & \verb|\mid|\\
     \end{tabular}
     \end{center}
 \end{frame}
@@ -438,12 +441,14 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
 % ------------------------------------------------------------------------------ %
 \begin{frame}[fragile]{\insertsection : Arrays}
     \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
+\[
 \left(
 \begin{array}{cc}
      2-\lambda & 0\\
      4 & 3-\lambda\\
 \end{array}
 \right)
+\]
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
