@@ -1,84 +1,180 @@
 \documentclass{beamer}
 
-% \usepackage[utf8]{inputenc}
+% \input{extra-tex/four-per-page.tex}
+
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{xcolor}
 \usepackage{listings}
-\usepackage[most]{tcolorbox}
 \usepackage{cancel}
 \usepackage{multicol}
 \usepackage{multirow}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[most]{tcolorbox}
+\usepackage{textcomp} % Arrows
 \usepackage{hyperref}
 
+% Beamer stuff
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+
 \title{MU \LaTeX{} Workshop}
-\date{September 2021}
+\date{2\textsuperscript{nd} May 2022}
 
 \begin{document}
 % ------------------------------------------------------------------------------ %
 \begin{frame}
     \titlepage
-    \center{\includegraphics[scale=0.08]{gra/MU Logo.png}}
+    \center{\includegraphics[scale=0.08]{img/MU Logo.png}}
 \end{frame}
+% ------------------------------------------------------------------------------ %
+% ------------------------------------------------------------------------------ %
+
+\section{Why LaTeX and what is it?}
+
 % ------------------------------------------------------------------------------ %
 \begin{frame}
     \tableofcontents
 \end{frame}
-% ------------------------------------------------------------------------------ %
 
-\section{Introduction}
-
-% ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : What is \LaTeX{}?}
+\begin{frame}[fragile]{Why \LaTeX{}? Why bother with it?}
     \begin{itemize}
-        \item \LaTeX{} uses markup convention opposed to WYSIWYG editors
-
-        \item Allows for consistent and scalable styling while you focus on writing the content.
-        \item You tell \LaTeX{} what it is, not what it should look like.
-        \item We will use \emph{Overleaf} today, an online \LaTeX{} editor
+        \item \LaTeX{} is the gold standard for formatting maths. Many apps support LaTeX maths formatting (eg. Notion, Markdown, Discord, websites).
+        \item[+] It is durable (doesn't corrupt like Word)
+        \item[+] Separation of content (what you're writing) from style (how it looks)
+        \begin{itemize}
+            \item[+] Automatically places figures/tables, etc
+            \item[+] You can swap out the styles easily
+            \item[+] The styles look great by default
+        \end{itemize}
+        \item[+] Can easily separate out your document into manageable files (eg. for sections) 
+        \item[=] Really good for academia!
+        \begin{itemize} 
+            \item[$\hookrightarrow{}$] 90\%+ of papers in engineering/maths/physics are written using LaTeX!
+        \end{itemize} 
+    
     \end{itemize}
 \end{frame}
-% ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : How Does it Work?}
+
+\begin{frame}[fragile]{What is \LaTeX{}?}
     \begin{itemize}
-        \item Prepare a \texttt{main.tex} file
-        \item Use markup commands to tell \LaTeX{} what to do.
-        \item \LaTeX{} reads your commands and compiles the document.
-        \item Produces a \texttt{main.pdf} file
+        \item \LaTeX{} vs Word
+        \begin{itemize}
+            \item \emph{LaTeX is a markup language} (ie. kinda like a coding language), that can be compiled to PDF by using a LaTeX engine.\\
+            ``What you \textbf{mean} is what you get'' (WYMIWYG) editor
+            \item \emph{Word is a visual, GUI editor.}\\
+            ``What you \textbf{see} is what you get'' (WYSIWYG) editor
+        \end{itemize}
+        
+        \item Where to write LaTeX
+        \begin{itemize}
+            \item Online (via. Overleaf)
+            \item Locally (using MikTeX, VScode, or other)
+        \end{itemize}
+
+        \item Lay-tech?
+        \begin{itemize}
+            \item Valid pronunciations include `Lay-tech', `Lah-tech', or `Lay-tex'. This \href{https://tex.stackexchange.com/q/17502}{\color{blue}\underline{Stackoverflow article}} explains it
+        \end{itemize}
     \end{itemize}
     
-    \vskip 2ex
-    
-    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,title=Example 1,listing side text,left=2mm,right=2mm}
-\begin{equation}
-    \sum_{i=1}^{k+1} n^2
-\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{When shouldn't I use \LaTeX{}?}
+    \begin{itemize}
+        \item For maths working heavy documents (if you want to be time efficient)
+        \begin{itemize}
+            \item Maths working can take a while to set out in LaTeX, still faster to handwrite (unless you become a LaTeX god\textsuperscript{TM})
+        \end{itemize}
+
+        \item If you want absolute control over styling/positioning
+        \begin{itemize}
+            \item Not as much control over styling out the box. Text interface makes it difficult to see final positioning.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Before we start!}
+    If you forget everything in this workshop, remember this!
+    \begin{itemize}
+        \item LaTeX Wikibook {\tiny(\url{https://en.wikibooks.org/wiki/LaTeX})}
+        \begin{itemize}
+            \item Amazing resource for learning LaTeX!
+        \end{itemize}
+
+        \item Detexify {\tiny(\url{https://detexify.kirelabs.org/})}
+        \begin{itemize}
+            \item Draw a symbol to find its LaTeX command!
+        \end{itemize}
+        \item Various cheat sheets online! {\tiny(\url{http://tug.ctan.org/info/undergradmath/undergradmath.pdf})}
+        
+    \end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------------------ %
+
+\section{Getting started}
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Document Layout}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing only,left=2mm,right=2mm,title=Typical Document Set Up}
+\documentclass[a4paper,14pt]{article}
+% Import any packages here!    
+\title{ Title }
+\author{ Author }
+\date{ Date }
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Text Here!
+\end{document}
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : Master Keys}
+\begin{frame}[fragile]{\insertsection : Reserved Characters}
     \begin{itemize}
-        \item Backslash \textbackslash \, is the master key - distinguishes command from content.
+        \item Backslash \textbackslash{} is the master key - distinguishes command from content. \textbackslash{}\textbackslash{} creates a new line.
         \item Curly brackets \{\} are used to contain and define commands
         \item Percent sign \% is used for comments
-        \item Other special characters include
-        \begin{itemize}
-            \item \#
-            \item \&
-            \item \underline{\hspace{0.8em}}        % normal underscore looks ugly
-            \item $\wedge$ (caret)
-        \end{itemize}
     \end{itemize}
+    \begin{tabular}{r|l}
+        \textbf{Special character} & \textbf{Using special character as text}\\\hline\hline
+        \verb|%| & \verb|\%|\\
+        \verb|$| & \verb|\$|\\
+        \verb|{| or \verb|}| & \verb|\{| or \verb|\}|\\
+        \verb|&| & \verb|\&|\\
+        \verb|#| & \verb|\#|\\
+        \verb|_| & \verb|\_|\\
+        \verb|^| & \verb|\^{}|\\
+        \verb|~| & \verb|\~{}|\\
+    \end{tabular}
 \end{frame}
 % ------------------------------------------------------------------------------ %
 \begin{frame}[fragile]{\insertsection : Macros and Environments}
     \begin{itemize}
         \item Commands are either macros or environments
-        \item Macros begin with \verb|\|
-        \item Environments are surrounded by \verb|\begin{environment}|and \verb|\end{environment}|
-        \item Commands may sometime require \emph{arguments} given using curly brackets \{\} or square brackets [ ]
+        \item Macros
+        \begin{itemize}
+            \item Macros begin with \verb|\|. They may sometimes require \emph{arguments} given using curly brackets \{\} (or optional arguments in square brackets [ ])
+        \end{itemize}
+        \item Environments
+        \begin{itemize}
+            \item Surrounded by \verb|\begin{environment}|and \verb|\end{environment}|
+        \end{itemize}
     \end{itemize}
+
     \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
 \[
 \left|
@@ -91,27 +187,9 @@
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : Document Set Up}
-    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing only,left=2mm,right=2mm,title=Typical Document Set Up}
-        \documentclass[a4paper,14pt]{article}
-        \usepackage[utf8]{inputenc}
-        
-        \title{ Title }
-        \author{ Author }
-        \date{ Date }
-        
-        \begin{document}
-        
-        \maketitle
-        
-        \section{Introduction}
-        Text Here!
-        \end{document}
-    \end{tcblisting}
-\end{frame}
 % ------------------------------------------------------------------------------ %
 \begin{frame}[fragile]{\insertsection : Packages}
-    They are just macros and environments other people have written!
+    Extend base LaTeX by using packages! Adds macros and environments to your document.
     Some of the most useful to use:
     \vskip 2em
     \begin{tabular}{l|l}
@@ -156,8 +234,8 @@
     Can change font size:\\
         \begin{center}
         \begin{tabular}{ll}
-            \verb|\scriptsize|   & \scriptsize{Example} \\
             \verb|\tiny|         & \tiny{Example} \\
+            \verb|\scriptsize|   & \scriptsize{Example} \\
             \verb|\small|        & \small{Example} \\
             \verb|\large|        & \large{Example} \\
             \verb|\Large|        & \Large{Example} \\
@@ -282,27 +360,26 @@ The package xcolor is particularly useful for getting very specific colours.
     \end{itemize}
     \begin{table}[]
         \centering
-        \begin{tabular}{c|c|c}
-            In-line & One-line & Multi-line \\
+        \begin{tabular}{c||c|c|c}
+            & Inline & Block equation \\
             \hline
-            \$ \$ & & \cancel{\$\$ \$\$} \\
-            \verb|\( \)| & \verb|\[ \]| & \\
-            \verb|\begin{math}| & \verb|\begin{displaymath}| & \verb|\begin{align}| \\
-            & \verb|\begin{equation}| & \\
+            TeX (outdated) & \$ \$ & \$\$ \$\$ \\
+            LaTeX & \verb|\( \)| & \verb|\[ \]| & \\
+            Environment & \verb|\begin{math}| & \verb|\begin{displaymath}|\\
         \end{tabular}
-        \vskip 2ex
-    \begin{itemize}
-        \item \verb|\[ \]| will not number equations, \verb|\begin{equation}| will
-        \item We can suppress numbering using the *
-    \end{itemize}
     \end{table}
+    \vskip 2ex
+    \begin{itemize}
+        \item We can do multi-line equations using the \verb|align| environment.
+        \item \verb|\[ \]| will not number equations, \verb|\begin{equation}| will (we can suppress numbering using \verb|\begin{equation*}|, but might as well use \verb|displaymath| at that point)
+    \end{itemize}
 \end{frame}
 % ------------------------------------------------------------------------------ %
 \begin{frame}[fragile]{\insertsection : Environments}
     \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Inline and Oneline}
-An example of inline math to write $x=2$. Or an 
-equation like:
-    \[ x=\frac{-b \pm \sqrt{ b^2-4ac }}{2a}\]
+An example of inline math to write
+\(\phi=2\sin(\theta)\). Or an equation like:
+\[ x=\frac{-b \pm \sqrt{ b^2-4ac }}{2a}\]
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
@@ -324,16 +401,17 @@ And a multi-line math environment such as
             \item \verb|\Omega| for uppercase $\Omega$
             \item \verb|\omega| for lowercase $\omega$
         \end{itemize}
-        \item Cheat sheet! You'll learn them eventually
+        \item \href{http://tug.ctan.org/info/undergradmath/undergradmath.pdf}{\color{blue}\underline{Cheat sheet!}} You'll learn them eventually
         \item Some of my most common
-        \begin{center}
-            \begin{tabular}{cl|cl}
-                $\int$ &  \verb|\int| & $\implies$ & \verb|\implies|\\
-                $\partial$ & \verb|\partial| & $\cdot$ & \verb|\cdot|\\
-                $\pm$ & \verb|\pm| & $\leq$ & \verb|\leq|\\
-            \end{tabular}
-        \end{center}
     \end{itemize}
+    \begin{center}
+        \begin{tabular}{cl|cl}
+            $\int_{-1}^{1}$ &  \verb|\int_{-1}^{1}| & $\sum_{n=1}^\infty$ & \verb|\sum_{n=1}^\infty|\\
+            $\frac{a}{b}$ &  \verb|\frac{a}{b}| & $\times$ & \verb|\times|\\
+            $\partial$ & \verb|\partial| & $\cdots$ & \verb|\cdots|\\
+            $\pm$ & \verb|\pm| & $\leq$ & \verb|\leq|\\
+        \end{tabular}
+    \end{center}
 \end{frame}
 % ------------------------------------------------------------------------------ %
 \begin{frame}[fragile]{\insertsection : Superscripts and Subscripts}
@@ -453,31 +531,54 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : Tables}
-\begin{itemize}
-    \item the text mode version is \verb|\begin{tabular}{}|
-    \item also takes an alignment argument
-    \item \verb|\hline| to make horizontal breaks
-    \item \verb|\usepackage{booktabs}| allows for fancy rulings
-    \begin{itemize}
-        \item \verb|\toprule|
-        \item \verb|\midrule|
-        \item \verb|\bottomrule|
-    \end{itemize}
-\end{itemize}
+\begin{frame}[fragile]{\insertsection : Matrix environments}
+    We can also use \verb|pmatrix| and \verb|bmatrix| environments:
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
+\[
+\begin{pmatrix}
+     2-\lambda & 0\\
+     4 & 3-\lambda\\
+\end{pmatrix}
+\]
+\[
+\begin{bmatrix}
+     2-\lambda & 0\\
+     4 & 3-\lambda\\
+\end{bmatrix}
+\]
+    \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
 \begin{frame}[fragile]{\insertsection : Tables}
-\begin{itemize}
-    \item \verb|\usepackage{multicol}| and \verb|\usepackage{multirow}| are super useful!
-    \item \verb|\multicolumn{n}{alignment}{text}|
     \begin{itemize}
-        \item combines n columns
-        \item the multicolumn has its own alignment options - need to but in borders if you'd like
+        \item the text mode version is \verb|\begin{tabular}{}|
+        \item also takes an alignment argument
+        \begin{itemize}
+            \item \verb|l| \textrightarrow{} Left align
+            \item \verb|c| \textrightarrow{} Centre align
+            \item \verb|r| \textrightarrow{} Right align
+        \end{itemize}
+        \item \verb|\hline| to make horizontal breaks
+        \item Extended table use
+        \begin{itemize}
+            \item \verb|\usepackage{booktabs}| \textrightarrow{} fancy rulings
+            \item \verb|\usepackage{multicol}| and \verb|\usepackage{multirow}| \textrightarrow{} Merged cells
+        \end{itemize}
+        
     \end{itemize}
-    \item \verb|\multirow{rows}{width}{text}| uses a similar format
-\end{itemize}
-\end{frame}
+    \end{frame}
+    % ------------------------------------------------------------------------------ %
+    \begin{frame}[fragile]{\insertsection : Tables}
+        \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Table example}
+    \begin{tabular}{l|c|r} % |'s -> vertical lines
+        \textbf{l align column} & \textbf{c align column} & \textbf{r align column}\\
+        \hline\hline
+        1 & 2 & 3\\
+        4 & 5 & 6\\
+        \hline
+    \end{tabular}
+        \end{tcblisting}
+    \end{frame}
 % ------------------------------------------------------------------------------ %
 
 \section{Figures}
@@ -505,6 +606,12 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
         \item \verb|width=|
         \item \verb|height=|
         \item \verb|angle=|
+    \end{itemize}
+    \item \verb|\paperwidth|, \verb|\textwidth|, \verb|cm| and \verb|in| are super useful
+    \begin{itemize}
+        \item \verb|width=0.8\textwidth|
+        \item \verb|width=0.5\paperwidth|
+        \item \verb|width=5cm|
     \end{itemize}
     \item I would recommend putting your graphics into folders
 \end{itemize}
@@ -558,10 +665,10 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
 \end{itemize}
 \begin{figure}[h]
     \begin{minipage}{4cm}
-        \includegraphics[width=4cm]{gra/frog.jpg}
+        \includegraphics[width=4cm]{img/frog.jpg}
     \end{minipage}
     \begin{minipage}{4cm}
-        \includegraphics[width=4cm]{gra/frog.jpg}
+        \includegraphics[width=4cm]{img/frog.jpg}
     \end{minipage}
     \caption{Frogs (2).}
 \end{figure}
@@ -572,10 +679,10 @@ The source code for the previous figure:
     \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing only,left=2mm,right=2mm,title=Frogs Figure}
 \begin{figure}[h]
     \begin{minipage}{4cm}
-        \includegraphics[width=4cm]{gra/frog.jpg}
+        \includegraphics[width=4cm]{img/frog.jpg}
     \end{minipage}
     \begin{minipage}{4cm}
-        \includegraphics[width=4cm]{gra/frog.jpg}
+        \includegraphics[width=4cm]{img/frog.jpg}
     \end{minipage}
     \caption{Frogs (2).}
 \end{figure}
@@ -624,4 +731,6 @@ The source code for the previous figure:
 \begin{frame}[fragile]{}
 \center{Thank You!}
 \end{frame}
+
+
 \end{document}
