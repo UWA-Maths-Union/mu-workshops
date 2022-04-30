@@ -47,7 +47,7 @@
 \begin{frame}[fragile]{Why \LaTeX{}? Why bother with it?}
     \begin{itemize}
         \item \LaTeX{} is the gold standard for formatting maths. Many apps support LaTeX maths formatting (eg. Notion, Markdown, Discord, websites).
-        \item[+] It is durable (doesn't corrupt like Word)
+        \item[+] It is durable (doesn't corrupt like Word) and OS independent
         \item[+] Separation of content (what you're writing) from style (how it looks)
         \begin{itemize}
             \item[+] Automatically places figures/tables, etc
@@ -81,7 +81,7 @@
 
         \item Lay-tech?
         \begin{itemize}
-            \item Valid pronunciations include `Lay-tech', `Lah-tech', or `Lay-tex'. This \href{https://tex.stackexchange.com/q/17502}{\color{blue}\underline{Stackoverflow article}} explains it
+            \item Valid pronunciations include `Lay-tech', `Lah-tech', or `Lay-tecks'. This \href{https://tex.stackexchange.com/q/17502}{\color{blue}\underline{Stackoverflow article}} explains it
         \end{itemize}
     \end{itemize}
     
@@ -175,15 +175,15 @@ Text Here!
         \end{itemize}
     \end{itemize}
 
-    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
-\[
-\left|
-\begin{array}{cc}
-     2-\lambda & 0\\
-     4 & 3-\lambda\\
-\end{array}
-\right|
-\]
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Environment Example}
+\begin{displaymath}
+    \left|
+    \begin{array}{cc}
+        2-\lambda & 0\\
+        4 & 3-\lambda\\
+    \end{array}
+    \right|
+\end{displaymath}
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
@@ -485,25 +485,25 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
 \end{frame}
 % ------------------------------------------------------------------------------ %
 
-\section{Alignment and Arrays}
+\section{Alignment, Arrays, Cases, Tables}
 
 % ------------------------------------------------------------------------------ %
 \begin{frame}
     \tableofcontents[currentsection]
 \end{frame}
 % ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : Align}
+\begin{frame}[fragile]{Align}
 \begin{itemize}
     \item The master key for alignment is the \&
     \item In the \verb|\begin{align}| environment, we can use it to align equations
     \item We separate lines using the \verb|\\| macro
 \end{itemize}
     \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Alignment}
-                \begin{align*}
-                    0 &= x^2+x\\
-                    0 &= x(x+1)\\
-                    \implies x &= 0, x=-1
-                \end{align*}
+\begin{align*}
+    0 &= x^2+x\\
+    0 &= x(x+1)\\
+    \implies x &= 0, x=-1
+\end{align*}
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
@@ -518,7 +518,7 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
 \end{itemize}
 \end{frame}
 % ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : Arrays}
+\begin{frame}[fragile]{Arrays}
     \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
 \[
 \left(
@@ -531,9 +531,9 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : Matrix environments}
+\begin{frame}[fragile]{Matrices}
     We can also use \verb|pmatrix| and \verb|bmatrix| environments:
-    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Matrices}
 \[
 \begin{pmatrix}
      2-\lambda & 0\\
@@ -549,7 +549,20 @@ $ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
     \end{tcblisting}
 \end{frame}
 % ------------------------------------------------------------------------------ %
-\begin{frame}[fragile]{\insertsection : Tables}
+\begin{frame}[fragile]{Cases}
+    We can use \verb|cases| for piecewise functions!:
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Cases}
+\[H(s) =
+\begin{cases}
+0 \text{ for } s<0\\
+1 \text{ for } s\geq 0\\
+\end{cases}
+\]
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+
+\begin{frame}[fragile]{Tables}
     \begin{itemize}
         \item the text mode version is \verb|\begin{tabular}{}|
         \item also takes an alignment argument
@@ -715,7 +728,7 @@ The source code for the previous figure:
 \begin{frame}[fragile]{\insertsection : What Now?}
 \begin{itemize}
     \item Tinker with other built in commands and formatting tools
-    \item Make your own commands and macros
+    \item \href{https://www.overleaf.com/learn/latex/Defining_your_own_commands}{\color{blue}\underline{Make your own commands and macros}}
     \begin{itemize}
         \item \verb|\newcommand{}[]{}|
         \item \verb|\newcommand{\R}{\mathbb{R}}|
