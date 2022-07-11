@@ -1,0 +1,151 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage[margin=2cm]{geometry}
+\usepackage{multicol}
+\title{MU 2021 \LaTeX{} Problem Set}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+\begin{document}
+\maketitle
+\section{Starter Questions}
+\begin{description}
+    \item[Problem 1.1] \LaTeX{} the following question from MATH1011:\\
+    Let $R$ be the region bounded by $y = \sqrt{x},x=1$ and $y=0$. Sketch $R$.
+    \item[Problem 1.2] \LaTeX{} the following question from the Australian Mathematics Competition:\\
+    Consider the set $X=\{1,2,3,4,5,6\}$. How many subsets of $X$, with at least one number, do not contain two consecutive integers?
+    \item[Problem 1.3] \LaTeX{} the following question from MATH1011:\\
+    Let $f:\mathbb{R}\to\mathbb{R}^2$ be defined by
+    \[f(x,y)=e^{2x}+\cos(xy)+xy^2\]
+    What are $f_x,f_y,f_{xx},f_{yy}$ and $f_{xy}$
+    \item[Problem 1.4] \LaTeX{} the following question from MATH1011 (Note the use of bracket size):\\
+    Describe the shape of the surface
+    \[\mathbf{S}(u,v)=\Big\{\big(\cos(u),\sin(u),v\big)|0\leq u\leq 2\pi,1\leq v\leq 2\Big\}\]
+    \item[Problem 1.5] \LaTeX{} the following question from MATH1012:\\
+    Find the limit of the sequence $\{a_n\}^\infty_{n=1}$ defined by
+    \[a_n=\frac{\sin^2(n)}{\sqrt{n}}\]
+    or show that the limit does not exist
+    \item[Problem 1.6] \LaTeX{} the following question from MATH1011:\\
+    Evaluate the following limit, if it exists:
+    \[\lim_{t\to1}\frac{3t^4+2t-5}{12-7t^2-5t^3}\]
+\end{description}
+\section{Intermediate questions}
+\begin{description}
+    \item[Problem 2.1] \LaTeX{} the following excerpt from a MATH1012 solution:\\
+    \begin{align*}
+        x_1&=\frac{-5x_2-6x_3-3x_4}{2}\\
+        &=\frac{\frac{50}{11}x_3-6x_3+\frac{35}{11}x_4-3x_4}{2}\\
+        &=\frac{-\frac{16}{11}x_3+\frac{2}{11}x_4}{2}\\
+        &=-\frac{8}{11}x_3+\frac{1}{11}x_4
+    \end{align*}
+    \item[Problem 2.2] \LaTeX{} the following question from MATH1011:\\
+    Use an appropriate substitution to find
+    \[\int_0^2\frac{x}{\sqrt{x^2+16}}dx\]
+    \item[Problem 2.3] \LaTeX{} the following question from MATH1012:\\
+    Determine all $x\in \mathbb{R}$ for which the series
+    \[\sum^\infty_{n=0}\frac{(x-1)^2}{n}\]
+    is (i) absolutely convergent, (ii) conditionally convergent, (iii) divergent.
+    \item[Problem 2.4] \LaTeX{} the following question from MATH1011:\\
+    Let $f(x,y)$ be a continuously differentiable function in $\mathbb{R}^2$ and let\\
+    \[g(s,t)=f(t^2-s^2,s^2-t^2),\quad (s,t)\in \mathbb{R}^2\]
+    That is, $g(s,t)=f\big(x(s,t),y(s,t)\big)$ where $x(s,t)=t^2-s^2$ and $y(s,t)=s^2-t^2$. Use the chain rule to show that
+    \[t\frac{\partial g}{\partial s}(s,t) + s\frac{\partial g}{\partial t}(s,t)=0\]
+    for all $(s,t)\in \mathbb{R}^2$
+\end{description}
+\section{Arrays}
+\begin{description}
+    \item[Problem 3.1] Produce the following array:\\
+    \[
+    \left(
+    \begin{array}{cc|c}
+        1 & 2 & 0\\
+        3 & 4 & 0
+    \end{array}
+    \right).
+    \]
+    \item[Problem 3.2] Produce the following array:\\
+    \[
+    \left[
+    \begin{array}{cc}
+        2 &  2\\
+        3 &  4
+    \end{array}
+    \right]
+    \left[
+    \begin{array}{c}
+    x\\y
+    \end{array}
+    \right]
+    =
+    \left[
+    \begin{array}{c}
+    4\\2
+    \end{array}
+    \right]
+    \]
+    \item[Problem 3.4] Produce the following array:\\
+    \[\left|
+    \begin{array}{ccc}
+        4-\lambda & x & 0  \\
+        0 & 2-\lambda & 0\\
+        2x & 0 & -\lambda\\
+    \end{array}
+    \right|\]
+\end{description}
+\newpage
+\section{Tables}
+\begin{description}
+    \item[Problem 4.1] Produce the following table:\\
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ccc}
+        \hline
+        & A & B\\
+        \hline
+        P1 & 1 & 2\\
+        P2 & 3 & 4\\
+        P3 & 5 & 6\\
+        \hline
+        \end{tabular}
+    \end{table}
+    \item[Problem 4.2] Produce the following table:\\
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            Product & A & B & C\\
+            \hline
+            Price & 1 & 2 & -\\
+            \hline
+            Amount & 100 & 400 & 10\\
+            \hline
+            $\Delta$ & 2.3 & -1.5 & 8.0\\
+            \hline
+        \end{tabular}
+        \caption{Problem 4.2}
+        \label{tab:my_label}
+    \end{table}
+    \item[Problem 4.3] Produce the following table using \verb|\usepackage{multicol}| and the \verb|\multicolumn{}{}{}| command:\\
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline 
+            & \multicolumn{2}{|c|}{Test Score}\\
+            \hline
+            Sample & $\mu$ & $\sigma$\\
+            \hline
+            T1 & 2.7 & 0.1\\
+            T2 & 3.4 & 0.4\\
+            T3 & 2.5 & 0.2\\
+            \hline
+        \end{tabular}
+        \caption{Caption}
+        \label{tab:my_label}
+    \end{table}
+\end{description}
+\end{document}

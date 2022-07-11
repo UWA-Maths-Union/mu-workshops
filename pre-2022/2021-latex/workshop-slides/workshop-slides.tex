@@ -1,0 +1,627 @@
+\documentclass{beamer}
+
+% \usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{cancel}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{hyperref}
+
+\title{MU \LaTeX{} Workshop}
+\date{September 2021}
+
+\begin{document}
+% ------------------------------------------------------------------------------ %
+\begin{frame}
+    \titlepage
+    \center{\includegraphics[scale=0.08]{gra/MU Logo.png}}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}
+    \tableofcontents
+\end{frame}
+% ------------------------------------------------------------------------------ %
+
+\section{Introduction}
+
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : What is \LaTeX{}?}
+    \begin{itemize}
+        \item \LaTeX{} uses markup convention opposed to WYSIWYG editors
+
+        \item Allows for consistent and scalable styling while you focus on writing the content.
+        \item You tell \LaTeX{} what it is, not what it should look like.
+        \item We will use \emph{Overleaf} today, an online \LaTeX{} editor
+    \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : How Does it Work?}
+    \begin{itemize}
+        \item Prepare a \texttt{main.tex} file
+        \item Use markup commands to tell \LaTeX{} what to do.
+        \item \LaTeX{} reads your commands and compiles the document.
+        \item Produces a \texttt{main.pdf} file
+    \end{itemize}
+    
+    \vskip 2ex
+    
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,title=Example 1,listing side text,left=2mm,right=2mm}
+\begin{equation}
+    \sum_{i=1}^{k+1} n^2
+\end{equation}
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Master Keys}
+    \begin{itemize}
+        \item Backslash \textbackslash \, is the master key - distinguishes command from content.
+        \item Curly brackets \{\} are used to contain and define commands
+        \item Percent sign \% is used for comments
+        \item Other special characters include
+        \begin{itemize}
+            \item \#
+            \item \&
+            \item \underline{\hspace{0.8em}}        % normal underscore looks ugly
+            \item $\wedge$ (caret)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Macros and Environments}
+    \begin{itemize}
+        \item Commands are either macros or environments
+        \item Macros begin with \verb|\|
+        \item Environments are surrounded by \verb|\begin{environment}|and \verb|\end{environment}|
+        \item Commands may sometime require \emph{arguments} given using curly brackets \{\} or square brackets [ ]
+    \end{itemize}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
+\[
+\left|
+\begin{array}{cc}
+     2-\lambda & 0\\
+     4 & 3-\lambda\\
+\end{array}
+\right|
+\]
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Document Set Up}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing only,left=2mm,right=2mm,title=Typical Document Set Up}
+        \documentclass[a4paper,14pt]{article}
+        \usepackage[utf8]{inputenc}
+        
+        \title{ Title }
+        \author{ Author }
+        \date{ Date }
+        
+        \begin{document}
+        
+        \maketitle
+        
+        \section{Introduction}
+        Text Here!
+        \end{document}
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Packages}
+    They are just macros and environments other people have written!
+    Some of the most useful to use:
+    \vskip 2em
+    \begin{tabular}{l|l}
+        Package & Use\\
+        \hline
+        amsmath, amssymb, amsfonts & various maths tools \\
+        geometry& to finely tune page size + margins \\
+        pgfplot& to create figures and plots \\
+        hyperref& to embed links \\
+        graphicx& to add graphics and figures  \\
+        siunitsx& for units in maths  \\
+    \end{tabular}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+
+\section{Basic Writing}
+
+% ------------------------------------------------------------------------------ %
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Text Options}
+    We can change font options either using the
+    \begin{enumerate}
+        \item \alert{command}
+        \begin{itemize}
+            \item Surround small blocks of text
+            \item \verb|\command{text}|
+        \end{itemize}
+        \item \alert{switch command}
+        \begin{itemize}
+            \item Convert large blocks of text
+            \item Use  \verb|\switchcommand|
+            \item Will keep text option unless changed or;
+            \item can surround text with \verb|{\switchcommand text}|
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Text Options}
+    Can change font size:\\
+        \begin{center}
+        \begin{tabular}{ll}
+            \verb|\scriptsize|   & \scriptsize{Example} \\
+            \verb|\tiny|         & \tiny{Example} \\
+            \verb|\small|        & \small{Example} \\
+            \verb|\large|        & \large{Example} \\
+            \verb|\Large|        & \Large{Example} \\
+            \verb|\LARGE|        & \LARGE{Example} \\
+            \verb|\huge|         & \huge{Example}  \\
+            \verb|\Huge|         & \Huge{Example}  \\
+        \end{tabular}
+        \end{center}
+    Each can act as a switch command or normal command.
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Text Options}
+    Can change font style:\\
+        \begin{center}
+        \begin{tabular}{lll}
+            \verb|\textbf| & \textbf{Example} & Bold\\
+            \verb|\textit| & \textit{Example} & Italic\\
+            \verb|\textsc| & \textsc{Example} & Small Caps\\
+        \end{tabular}\\
+        \end{center}
+    Or font family:
+        \begin{center}
+        \begin{tabular}{lll}
+            \verb|\textrm| & \textrm{Example} & Roman\\
+            \verb|\texttt| & \texttt{Example} & Typewriter\\
+            \verb|\textsf| & \textsf{Example} & Sans Serif\\
+        \end{tabular}
+        \end{center}
+    Whose switch commands can be evoked using \verb|\rmfamily| etc.
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Text Options}
+    Can change font colour:
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Changing Text Colour}
+Here is how you can change the colour of single \textcolor{red}{words} using the command, or changing { \color{red} blocks of texts by surrounding it in curly brackets } using the switch command.
+    \end{tcblisting}
+The package xcolor is particularly useful for getting very specific colours.
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Lists}
+    \begin{itemize}
+        \item We can make ordered and unorded lists using the following environments:
+            \begin{enumerate}
+                \item \verb|\begin{enumerate}| for unordered lists
+                \item \verb|\begin{itemize}| for ordered lists
+                \item \verb|\begin{description}| for long paragraphs
+            \end{enumerate}
+        \item Each point is denoted using the \verb|\item| command
+        \item You can nest up to four lists
+        \item[:)] You can change the bullet by specifying it as an argument in \verb|\item[new bullet]|
+    \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Lists}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,listing only,right=2mm,title=Example List}
+\begin{itemize}
+    \item Heres an example of a list!
+        \begin{enumerate}
+            \item And how you can nest lists!
+            \item Of any kind!
+        \end{enumerate}
+    \item[!] And how you can change bullet points
+    \end{itemize}
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+
+\section{Formatting Documents}
+
+% ------------------------------------------------------------------------------ %
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Title Pages}
+    \begin{itemize}
+        \item We can make a title with \verb|\maketitle| with the various options we give it
+            \begin{itemize}
+                \item \verb|\title{}|
+                \item \verb|\author{}|
+                \item \verb|\date{}|
+            \end{itemize}
+        \item A page of contents with \verb|\tableofcontents|
+        \item An abstract using \verb|\begin{abstract}| environment
+        \item Further customisation using \verb|\begin{titlepage}| environment
+    \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Sections}
+    Heirarchy of \LaTeX{} is always important
+    \begin{enumerate}
+        \item \verb|\section{}|
+        \item \verb|\subsection{}|
+        \item \verb|\subsubsection{}|
+    \end{enumerate}
+    We can suppress numbering putting an asterix after the command, such as \verb|\section*{}|
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Spacing}
+    \begin{itemize}
+        \item Kerning exists
+        \item \verb|\,|, \verb|\:|, \verb|\;|, \verb|\!| and \verb|\ | (with a space) give increasing spaces between words
+        \item \verb|\quad| gives space equal to current font size (from the quadrat!)
+        \item \verb|\vspace{<length>}| and \verb|hspace{<length>}|
+        \item \verb|\\| ends the line and starts another
+        \item \verb|\newline| will insert a new line altogether
+        \item \verb|\newpage|
+    \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+
+\section{Mathematics}
+
+% ------------------------------------------------------------------------------ %
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Environments}
+    \begin{itemize}
+        \item Instead of writing in \emph{text} mode, we write in \emph{math} mode
+    \end{itemize}
+    \begin{table}[]
+        \centering
+        \begin{tabular}{c|c|c}
+            In-line & One-line & Multi-line \\
+            \hline
+            \$ \$ & & \cancel{\$\$ \$\$} \\
+            \verb|\( \)| & \verb|\[ \]| & \\
+            \verb|\begin{math}| & \verb|\begin{displaymath}| & \verb|\begin{align}| \\
+            & \verb|\begin{equation}| & \\
+        \end{tabular}
+        \vskip 2ex
+    \begin{itemize}
+        \item \verb|\[ \]| will not number equations, \verb|\begin{equation}| will
+        \item We can suppress numbering using the *
+    \end{itemize}
+    \end{table}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Environments}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Inline and Oneline}
+An example of inline math to write $x=2$. Or an 
+equation like:
+    \[ x=\frac{-b \pm \sqrt{ b^2-4ac }}{2a}\]
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Environments}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Multiline}
+And a multi-line math environment such as
+\begin{align*}
+    0 &= x^2 - 1\\
+    0 &= (x-1)(x+1)
+\end{align*}
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Symbols}
+    \begin{itemize}
+        \item Symbols are accessed via macros
+        \item Greek symbols:
+        \begin{itemize}
+            \item \verb|\Omega| for uppercase $\Omega$
+            \item \verb|\omega| for lowercase $\omega$
+        \end{itemize}
+        \item Cheat sheet! You'll learn them eventually
+        \item Some of my most common
+        \begin{center}
+            \begin{tabular}{cl|cl}
+                $\int$ &  \verb|\int| & $\implies$ & \verb|\implies|\\
+                $\partial$ & \verb|\partial| & $\cdot$ & \verb|\cdot|\\
+                $\pm$ & \verb|\pm| & $\leq$ & \verb|\leq|\\
+            \end{tabular}
+        \end{center}
+    \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Superscripts and Subscripts}
+    \begin{itemize}
+        \item we use $\_$ and $\wedge$
+        \item delimit its use with curly brackets \{ \} if more than one character is used
+        \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Multiline}
+We can add subscripts like $x_i$ or $x_{i+1}$ \\
+Or superscripts like $a^2$ and $a^{n+1}$ \\
+Both can be used in conjunction like $a_n^i$ \\
+But this can be improved using curly brackets as 
+well; ${a_n}^i$
+    \end{tcblisting}
+    \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Operators}
+    \begin{itemize}
+        \item $\sin, \cos, \tan$ use \verb|\sin, \cos, \tan| in math mode
+        \item \verb|\frac{}{}| creates a fraction
+        \item \verb|\dfrac{}{}| will force a \emph{display style} fraction
+        \item \verb|\sqrt[]{}| will create a square root by default, or $nth$ root if specified in [ ]
+        \item \verb|\mathop{dx}| $\mathop{dx}$ for upright differential operators if you care
+        \item \verb|\text{}| to write text in math mode
+    \end{itemize}
+    \vskip 2ex
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Various Operators}
+$ \hat{a},  \dot{a},  \ddot{a},  \bar{a} $
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Delimiters}
+    Along with the standard delimiters found on the keyboard,
+    \vskip 2ex
+    \begin{center}
+    \begin{tabular}{c|l}
+        $\langle$ & \verb|\langle|\\
+        $\rangle$ & \verb|\rangle|\\
+        $\{$      & \verb|\{|\\
+        $\}$      & \verb|\}|\\
+        $\|$      & \verb|\mid|\\
+    \end{tabular}
+    \end{center}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Delimiters}
+    \begin{itemize}
+        \item We can use \emph{delimiters} to surround various expressions
+        \item \verb|\left<delimiter>| and \verb|\right<delimiter>| to wrap using a delimiter
+        \item Must have both commands to wrap
+        \item use \verb|\left.| if you do not want a left delimiter (or vice versa)
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Delimiters}
+\[   f(x,y)=\left\|  \frac{x+y}{2}  \right\|   \]
+    \end{tcblisting}
+    \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Delimiters}
+    \begin{itemize}
+        \item You can manually set the size of delimiters to distinguish nested equations
+    \end{itemize}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Delimiter Size}
+\[ \big( \Big( \bigg( \Bigg(  \]
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Delimiters}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Delimiter Size Example}
+\[ \Big( 2\times \big( f(x,y)+g(x,y) \big) \Big)^2 \]
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+
+\section{Alignment and Arrays}
+
+% ------------------------------------------------------------------------------ %
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Align}
+\begin{itemize}
+    \item The master key for alignment is the \&
+    \item In the \verb|\begin{align}| environment, we can use it to align equations
+    \item We separate lines using the \verb|\\| macro
+\end{itemize}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,left=2mm,right=2mm,title=Alignment}
+                \begin{align*}
+                    0 &= x^2+x\\
+                    0 &= x(x+1)\\
+                    \implies x &= 0, x=-1
+                \end{align*}
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Arrays}
+\begin{itemize}
+    \item \verb|\begin{array}{}| command
+    \item takes alignment argument (c,l,r)
+    \item each cell is separated by the \&
+    \item each line is separated by the \verb|\\|
+    \item we can use delimiters to form varying matrices!
+    \item Array writes in math mode
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Arrays}
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,left=2mm,right=2mm,title=Example 2}
+\[
+\left(
+\begin{array}{cc}
+     2-\lambda & 0\\
+     4 & 3-\lambda\\
+\end{array}
+\right)
+\]
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Tables}
+\begin{itemize}
+    \item the text mode version is \verb|\begin{tabular}{}|
+    \item also takes an alignment argument
+    \item \verb|\hline| to make horizontal breaks
+    \item \verb|\usepackage{booktabs}| allows for fancy rulings
+    \begin{itemize}
+        \item \verb|\toprule|
+        \item \verb|\midrule|
+        \item \verb|\bottomrule|
+    \end{itemize}
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Tables}
+\begin{itemize}
+    \item \verb|\usepackage{multicol}| and \verb|\usepackage{multirow}| are super useful!
+    \item \verb|\multicolumn{n}{alignment}{text}|
+    \begin{itemize}
+        \item combines n columns
+        \item the multicolumn has its own alignment options - need to but in borders if you'd like
+    \end{itemize}
+    \item \verb|\multirow{rows}{width}{text}| uses a similar format
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+
+\section{Figures}
+
+% ------------------------------------------------------------------------------ %
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Floats}
+\begin{itemize}
+    \item Floats cannot be broken across pages
+    \item \LaTeX{} will place floats \emph{for} you where it makes sense
+    \item Do not try to move floats to exactly where you want them - \LaTeX{} knows best!
+    \item \verb|\begin{tabular}| environments can be put into a \verb|\begin{table}| to float
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Graphics}
+\begin{itemize}
+    \item we use \verb|\usepackage{graphicx}| to import PNG,JPEG and PDFs
+    \item \verb|\includegraphics[parameters]{file path}|
+    \begin{itemize}
+        \item \verb|scale=|
+        \item \verb|width=|
+        \item \verb|height=|
+        \item \verb|angle=|
+    \end{itemize}
+    \item I would recommend putting your graphics into folders
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection}
+\begin{itemize}
+    \item We can specify figures using the \verb|\begin{figure}[]| environment
+    \item Everything inside our environment will be floated
+    \item Figures can take placement parameters
+    \begin{itemize}
+        \item[h] Try to place exactly here
+        \item[t] Try to place on top of page
+        \item[b] Try to place at bottom of page
+        \item[p] Place on separate page only for floats
+    \end{itemize}
+    \item You can put as many as you want, and \LaTeX{} will go through them one by one
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection}
+\begin{itemize}
+    \item Commonly used with \verb|\centering|
+    \item \verb|\caption{}|
+    \item \verb|\label{}| can be used to reference your figure
+\end{itemize}
+    \vskip 2ex
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing only,left=2mm,right=2mm,title=Default Figure}
+\begin{figure}
+    \centering
+    \includegraphics{}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Referencing Figures}
+\begin{itemize}
+    \item We can use \verb|\ref{label}| to call any figure or table
+    \item \LaTeX will count figures and tables separately
+    \item The same can be done with equations if you label them (they will also be counted separately)
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Arranging Figures}
+\begin{itemize}
+    \item If you'd like to arrange figures in a specific way, you can use \verb|\begin{minipage}{width}|
+    \item \verb|minipages| will align themselves next to each other if there is no whitespace
+    \item perfect solution for arrays of figures
+\end{itemize}
+\begin{figure}[h]
+    \begin{minipage}{4cm}
+        \includegraphics[width=4cm]{gra/frog.jpg}
+    \end{minipage}
+    \begin{minipage}{4cm}
+        \includegraphics[width=4cm]{gra/frog.jpg}
+    \end{minipage}
+    \caption{Frogs (2).}
+\end{figure}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : Arranging Figures}
+The source code for the previous figure:
+    \begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing only,left=2mm,right=2mm,title=Frogs Figure}
+\begin{figure}[h]
+    \begin{minipage}{4cm}
+        \includegraphics[width=4cm]{gra/frog.jpg}
+    \end{minipage}
+    \begin{minipage}{4cm}
+        \includegraphics[width=4cm]{gra/frog.jpg}
+    \end{minipage}
+    \caption{Frogs (2).}
+\end{figure}
+    \end{tcblisting}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+
+\section{Concluding Remarks}
+
+% ------------------------------------------------------------------------------ %
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : What Now?}
+\begin{itemize}
+    \item Practice!
+    \item Explore new packages that may be of use to you
+    \begin{itemize}
+        \item pgfplots
+        \item tikz
+        \item booktabs - lots more
+        \item mhchem - for chemical equations'
+        \item biblatex - referencing
+    \end{itemize}
+    \item \url{https://tex.stackexchange.com/}
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{\insertsection : What Now?}
+\begin{itemize}
+    \item Tinker with other built in commands and formatting tools
+    \item Make your own commands and macros
+    \begin{itemize}
+        \item \verb|\newcommand{}[]{}|
+        \item \verb|\newcommand{\R}{\mathbb{R}}|
+        \item \verb|\newcommand{\deriv}[1]{\frac{d}{d#1}}|
+    \end{itemize}
+\end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------ %
+% \begin{frame}[fragile]{\insertsection : Feedback}
+% If you could scan the QR code below to give feedback, that would be great.
+% \end{frame}
+% ------------------------------------------------------------------------------ %
+\begin{frame}[fragile]{}
+\center{Thank You!}
+\end{frame}
+\end{document}
