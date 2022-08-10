@@ -3,7 +3,7 @@ Welcome to the MU Workshops repo!! This is your one stop shop to MU workshop res
 
 All workshop resources are stored in this GitHub repo, but the way that GitHub works is that if you want to download workshop files, you have to download the entire repo. To get around this, the links below direct to the tool [DownGit](https://downgit.github.io/#/home) which will download the relevant folder.
 
-## 2021 workshops
+## 2022 workshops
 - LaTeX workshop:
   - [▶ Video](https://youtu.be/2Yu7ZgBFVvY)
   - [📚 Resources](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/latex)
