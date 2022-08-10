@@ -11,9 +11,11 @@ All workshop resources are stored in this GitHub repo, but the way that GitHub w
   - [▶ Video](https://youtu.be/BdJwVogTtlo)
   - [📚 Resources](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/mathematica)
 - Python workshop series:
+  - [📚 Resources (all parts)](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/python)
+  - Part 0: Your first Jupyter environment
+    - No recording (comprehensive resource in link above)
   - Part 1: Base Python
     - [▶ Video](https://youtu.be/5wpfkDsex8g)
-    - [📚 Resources](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/python)
   - Part 2: Scientific Python
     - Coming soon!
 
