@@ -1,0 +1,706 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Workshop 0 - My first Jupyter Notebook Environment</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="05daea2a-5359-4b57-8b3b-920a6b1095c2" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💻</span></div><h1 class="page-title">Workshop 0 - My first Jupyter Notebook Environment</h1></header><div class="page-body"><blockquote id="48a3cec3-e1f6-4fc1-b69c-d9da891d6c18" class="">written by Nick Hodgskin</blockquote><p id="08c3abdf-1e1f-46ba-af84-5ffaeea50f86" class="">
+</p><nav id="6c49f72e-4b07-4e61-a634-aa3b12208050" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6b2ad269-38ce-449d-8fb6-5b40b0cc3753">What’s a Jupyter?</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#93541fcd-5cfa-4f34-b9ba-6d1e774baf7a">Online environments</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#00b045c7-5272-4272-bc9e-0b00cbcbb186">Using Google Colab</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#17048149-0a7f-45d4-908c-32e9d4f0fe30">Local environment (recommended)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#beb35d93-243b-455b-9387-00a2f1e5788c">Installation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8d6bf9a3-57b3-47e1-9ba6-1046bce9137e">Launching Jupyter</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#9449610c-d683-43e6-961b-e891fac688ab">GUI Launch</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#da72578b-e4c3-468e-9b7c-147bacb9f484">To <code>notebook</code> or to <code>lab</code> , that is the question</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2bf4b26c-cad0-48a9-bd9e-88a2aa36ab5e">You’re done?</a></div></nav><p id="c4a1e43c-90dc-4863-8cc9-d6158c1a0aa0" class="">
+</p><h1 id="6b2ad269-38ce-449d-8fb6-5b40b0cc3753" class="">What’s a Jupyter?</h1><p id="a4aa7848-6225-487b-9a73-84521ae1ed71" class="">Jupyter Notebook is a notebook environment used for running <code>.ipynb</code> (iPython Notebook) files. These files combine markdown blocks/cells (ie. text cells, that contain paragraphs, tables, LaTeX equations, bold text) as well as Python code blocks. These blocks can be run in any order (typically run top to bottom) with a memory of what was run before.</p><p id="1ac65236-a057-4a3d-bdaf-143b2dcb4f2c" class="">This allows you to intersperse discussion with the code that you used to generate your results (perfect for reports and reproducible work!).</p><p id="b4f273c3-01d3-4a9e-a60e-79d05ce7fbfd" class="">This also makes it easy to tweak things (ie. to change my plot title, I don’t need to rerun my 30 minute simulation).</p><p id="75af0c8f-b905-4f08-92bb-6330e74b6052" class="">
+</p><p id="d900d850-8c5a-4bb6-8ecb-ad3b98c53499" class="">Compare this to normal <code>.py</code> files which:</p><ul id="af18855f-3563-4774-8c6f-d5000406a23e" class="bulleted-list"><li style="list-style-type:disc">Have limited ways of writting paragraphs (ie. only in comment blocks)</li></ul><ul id="9502ef6f-7de9-44f7-b58f-209bfed90e13" class="bulleted-list"><li style="list-style-type:disc">Everything runs top to bottom, and debugging often requires you to run the whole file again.</li></ul><p id="7a7e7069-d26c-4835-b5a3-30dfeefdcad6" class="">
+</p><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="16d62438-59b9-46ed-abb5-26170700da2f"><div style="font-size:1.5em"><span class="icon">✅</span></div><div style="width:100%">Jupyter Notebooks are <em><strong>ubiquitous</strong></em> through computational science disciplines and industries, hence knowing how to use them is a really nice skill to know.</div></figure><figure class="callout" style="white-space:pre-wrap;display:flex" id="86cfff08-2a57-4843-a46e-90176dee901c"><div style="font-size:1.5em"><span class="icon">🤯</span></div><div style="width:100%">You can use Jupyter with other languages (ie. different <em>kernels</em>, which handle the logic of the code cells).
+Jupyter:
+- <strong>Ju:</strong> Julia
+- <strong>pyt:</strong> Python
+- <strong>e:</strong> ?
+- <strong>r:</strong> R
+And I only found that out like a week ago 🤣</div></figure><p id="eeedaa76-2e87-41ad-9b48-826750bcb49f" class="">
+</p><p id="bb9baaf2-9f4c-4f97-839a-b7903d2c70e1" class="">
+</p><p id="053feb15-1ce3-4765-bb09-cc6b4490755d" class="">
+</p><hr id="633c542b-bd75-4f60-9a3d-d3214226342b"/><p id="21c32e71-9f03-45f4-affe-1d498a661386" class="">Lets set up a Jupyter Notebook environment! We have two options, an online environment or a local environment. Here’s a list of pros and cons of each to help you decide!:</p><ul id="4102d0cd-63fc-4517-ab4e-f68e98ad09bf" class="bulleted-list"><li style="list-style-type:disc">Online<ul id="f6b240f6-c236-4153-9265-f0f7aadb0bac" class="toggle"><li><details open=""><summary>Pros</summary><ul id="f2a67de2-e25f-4fc5-88d8-665c21c0d2bf" class="bulleted-list"><li style="list-style-type:disc">Its all online and backed up</li></ul><ul id="659e15e6-876d-4b7f-aed7-88e00a52fa78" class="bulleted-list"><li style="list-style-type:disc">Super easy to get started</li></ul><ul id="0d158d7d-dcc4-462f-bd2e-3421207c2254" class="bulleted-list"><li style="list-style-type:disc">Easy to collaborate with others</li></ul><ul id="b5973afc-bb2e-4e99-b99f-14327a5d8c66" class="bulleted-list"><li style="list-style-type:disc">Can access GPUs for machine learning (not important for us)</li></ul></details></li></ul><ul id="298994e3-f410-4850-8f34-a093f846e823" class="toggle"><li><details open=""><summary>Cons</summary><ul id="35d4fb40-e4a7-4167-9927-13e94e7bfdef" class="bulleted-list"><li style="list-style-type:disc">You have to have internet to use the notebook</li></ul><ul id="d82b4f80-3bd6-47a2-b131-b6aeaa319a45" class="bulleted-list"><li style="list-style-type:disc">Can have high latency (as its an online environment) 😠😠<ul id="e8fe47ee-43bc-4b55-8896-544643ec39cb" class="bulleted-list"><li style="list-style-type:circle">No matter how simple your code block is, it will take an extra second to run (compared to a local environment which is instant).</li></ul></li></ul><ul id="ff8cb33d-a9ba-4074-83c5-b4d55566c56b" class="bulleted-list"><li style="list-style-type:disc">Working with the filesystem is more complicated/annoying (linking up with Google drive etc)</li></ul></details></li></ul></li></ul><ul id="95c22457-e485-4237-90a8-c01e71438197" class="bulleted-list"><li style="list-style-type:disc">Local<ul id="d26ef674-dab9-40cb-84e5-9e91f9e0cc08" class="toggle"><li><details open=""><summary>Pros</summary><ul id="156437b7-d73d-449c-b0e1-8b9c49c5c605" class="bulleted-list"><li style="list-style-type:disc">Super fast</li></ul><ul id="b9e17ca8-c900-46ba-9e56-e2996f721371" class="bulleted-list"><li style="list-style-type:disc">Available regardless of if you have an internet connection</li></ul><ul id="73f778d8-631e-4344-baa3-df55e2c165ab" class="bulleted-list"><li style="list-style-type:disc">Means that your Jupyter Notebooks are just another file on your computer</li></ul></details></li></ul><ul id="021f0947-27c7-4151-a42e-e2755364cdff" class="toggle"><li><details open=""><summary>Cons</summary><ul id="71958cd0-bf57-4f2a-8d2f-ea7692cbccaa" class="bulleted-list"><li style="list-style-type:disc">Requires some setup (and some mild tech skills. ie, at least knowing how to install a program as per online instructions)</li></ul><ul id="6c1ba51a-92b6-4b5b-b83c-6e60d6a92dd5" class="bulleted-list"><li style="list-style-type:disc">Collaboration with others is more difficult</li></ul><p id="e92820b5-0ea1-4928-a26f-dad933d04a68" class="">
+</p><p id="47d68097-2896-4c2c-8439-9197eaab35c7" class="">
+</p></details></li></ul></li></ul><figure class="callout" style="white-space:pre-wrap;display:flex" id="82ecbad8-87f2-413b-a08a-68d47cdb5a95"><div style="font-size:1.5em"><span class="icon">☝</span></div><div style="width:100%">Personally, speed is everything for me. Waiting a couple seconds for each cell is infuriating for me, and tends to trip up my line of thought. Having a local install where simple cells run instantly is very nice.</div></figure><p id="2ddeff5a-3f19-4e17-b3bd-1a299ab307be" class="">
+</p><h1 id="93541fcd-5cfa-4f34-b9ba-6d1e774baf7a" class="">Online environments</h1><p id="c2a84604-c15a-4805-a46f-d2a7b6b13752" class="">You can get away with using on online Jupyter Notebook environment with little downsides. If you want to use Python/Jupyter often, or get annoyed with things taking a while to load, I would highly recommend setting up a local environment.</p><p id="bdabc6dd-38c0-4f00-b6ee-269ab85494e6" class="">
+</p><p id="dbe49b53-d268-4f09-80cb-1820bd476703" class="">For online Jupyter notebook environments, here are two:</p><ul id="9cf8205b-c4e6-49a0-990c-f9b993fa27ab" class="bulleted-list"><li style="list-style-type:disc">Google Colab</li></ul><ul id="15fab209-f8ae-4d73-bff1-ba3a0977ce70" class="bulleted-list"><li style="list-style-type:disc">CoCalc</li></ul><p id="5a713a22-a491-4993-b31b-321ed9f1e1aa" class="">Google Colab is by far the most popular online Jupyter Notebook environments</p><h2 id="00b045c7-5272-4272-bc9e-0b00cbcbb186" class="">Using Google Colab</h2><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="d976d772-02d7-4a85-820c-f1939c5afe77"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">Go to Google drive and create a document
+- Right click
+- More
+- Google colabatory
+- You’re done! This is your Jupyter Notebook!!</div></figure><p id="58984aa1-c37d-4feb-9efb-84d750aa30e8" class="">
+</p><h1 id="17048149-0a7f-45d4-908c-32e9d4f0fe30" class="">Local environment (recommended)</h1><p id="c9298f97-f562-4406-bbc9-af29aa204fee" class="">You can also install Jupyter locally and run Jupyter notebooks. The best way to do this is through <strong>Anaconda</strong>.</p><p id="a357898f-1d8f-465c-b0ca-345f546e44fa" class="">
+</p><p id="b8c74aac-9c33-4c35-8e8e-7dece6297d95" class="">Anaconda can be thought of as a Python installation with all the bells and whistles (ie. packages) necessary for scientific computing coming pre-installed. It also comes with a nice graphical interface which makes it easier to launch Jupyter.</p><p id="0558ec82-3381-4be8-ab81-afb873d01a18" class="">
+</p><p id="ee0dc529-bd85-4c3e-90a9-a1d01abdb64d" class="">Local Jupyter installations will also open in the browser, but you’ll see in the search bar <a href="http://localhost:8888/tree"><code>localhost:8888/tree</code></a> or similar. The <code>localhost</code> indicates that it is connected to a local server running on your computer.</p><p id="6ca82c6d-5280-40a9-901b-2d504f7207ca" class="">Basically Jupyter uses your web browser to display the application.</p><p id="e3ca6dcb-4d19-4a3c-82c3-fa7556a5076c" class="">
+</p><p id="e5c39e68-19de-4aab-b22b-d1a93e3b3d8d" class="">Note some UWA computers come with Jupyter installed. Search for “Anaconda Navigator” in the app search to check.</p><p id="83218f79-7453-4247-bceb-785758a83e92" class="">
+</p><h2 id="beb35d93-243b-455b-9387-00a2f1e5788c" class="">Installation</h2><p id="44d168ca-a760-4b6e-9c1e-69bc1ff67f45" class="">Installation instructions for Anaconda on Windows, Mac, and Linux can be found at the below link.</p><figure id="cd57892f-e2bc-4101-82da-64ff471a36e5"><a href="https://docs.anaconda.com/anaconda/install/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Installation - Anaconda documentation</div><div class="bookmark-description">Review the system requirements listed below before installing Anaconda Distribution. If you don&#x27;t want the hundreds of packages included with Anaconda, you can install Miniconda, a mini version of Anaconda that includes just conda, its dependencies, and Python. Tip Looking for Python 3.5 or 3.6? See our .</div></div><div class="bookmark-href"><img src="https://docs.anaconda.com/_static/img/favicon.ico" class="icon bookmark-icon"/>https://docs.anaconda.com/anaconda/install/</div></div></a></figure><p id="29bc4226-b266-4c14-961c-2f62409c8ecc" class="">
+</p><h2 id="8d6bf9a3-57b3-47e1-9ba6-1046bce9137e" class="">Launching Jupyter</h2><p id="9d75740e-8f8f-4af9-a085-8edbe2127a88" class="">Jupyter can either be launched through the terminal, or through the GUI (easier option).</p><ul id="9a99b54d-dc00-4206-8a87-fdd9fc3803fe" class="toggle"><li><details open=""><summary>Instructions for terminal launch</summary><ul id="eb04d4d2-2765-49e6-9863-5f3b063b40a9" class="bulleted-list"><li style="list-style-type:disc">Make sure anaconda has been added to your computer’s <code>path</code></li></ul><ul id="2847b694-0470-4c49-ab8c-aa71f9d41ec6" class="bulleted-list"><li style="list-style-type:disc">run <code>jupyter notebook</code> or <code>jupyter lab</code> in your terminal</li></ul><ul id="a65fa71a-938d-4875-8efa-e47dd7c4bc2f" class="bulleted-list"><li style="list-style-type:disc">Doesn’t work? Try restart your computer. Still no? Debugging required (likely your path isn’t configured properly)</li></ul><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="5943c533-8ad7-4451-8fe9-9f3abb9ad5d2"><div style="font-size:1.5em"><span class="icon">🚨</span></div><div style="width:100%">Running through the terminal will launch a server in that terminal window. Then a browser Window will pop up. Accidentally closed the browser window? Use <code>Ctrl+Shift+T</code> to open your most recent tab, or click on the link listed in the terminal window. You can shut down the server by pressing <code>Ctrl+c</code> in the terminal window, or using the menu in Jupyter’s browser window.
+
+<strong>Note</strong>: Closing this terminal window will shut down Jupyter and your Jupyter browser window will stop working.</div></figure><figure class="block-color-purple_background callout" style="white-space:pre-wrap;display:flex" id="afef7508-ed55-4506-8727-e96006b62b0f"><div style="font-size:1.5em"><span class="icon">🤩</span></div><div style="width:100%">The nice thing about a <em>terminal launch</em> is that you can <code>cd</code> (change directory) into your project directory. Hence when you launch your Jupyter environment your project folder will be opened up immediately in Jupyter and you don’t need to navigate more.</div></figure><p id="4f2d02e2-214b-4e3a-8aeb-33a40800ca2a" class="">
+</p></details></li></ul><p id="f56d57ca-0112-4972-93e3-63e092c1fa1c" class="">
+</p><h3 id="9449610c-d683-43e6-961b-e891fac688ab" class="">GUI Launch</h3><ul id="29bd5a7d-62e9-4641-be8e-60f91171e4b5" class="bulleted-list"><li style="list-style-type:disc">Search for “Anaconda Navigator” in your apps and launch it</li></ul><ul id="12972f0b-2ad6-480e-8dc6-3ef6bcef6761" class="bulleted-list"><li style="list-style-type:disc">You should see a list of applications here. Go to “Jupyter Notebook” or “Jupyter Lab” and click launch.</li></ul><ul id="df528882-2caf-427e-9a99-b86810409e5c" class="bulleted-list"><li style="list-style-type:disc">Done! A browser window with Jupyter should boot up. This will launch Jupyter in your root user folder, so you’ll need to navigate through to your project from here.</li></ul><p id="8c9efb0d-6d0f-47de-9ddf-7e6395389d6a" class="">
+</p><h2 id="da72578b-e4c3-468e-9b7c-147bacb9f484" class="">To <code>notebook</code> or to <code>lab</code> , that is the question</h2><p id="fc6cb792-7887-4d55-b1d8-7ebd7da44cbe" class=""><strong>TLDR; </strong>Use Jupyter Lab if you can</p><p id="de17dd4c-b309-4aa9-a271-d132e67c017b" class="">You may have noticed in the GUI launch that there are two options “Jupyter Notebook” or “JupyterLab” (or equivalently, <code>jupyter notebook</code> and <code>jupyter lab</code> for the terminal launch).</p><p id="1b0ae9b9-379f-4e92-a538-a3cc87b3d557" class="">
+</p><p id="7fa2c5ea-93a2-4654-a938-8be57b068c15" class="">Whats the difference between the two? <a href="https://stackoverflow.com/q/50982686"><em>Jupyter Lab is the “next generation” user interface</em></a>, and has some some more features (especially for window layout, and working with multiple workbooks at once). Jupyter Lab even has a feature where you can open the same notebook side by side (editting different parts of the notebook simultaneously, how nifty!).</p><p id="af1e2138-900c-40e5-b03a-ebb15106cffc" class="">Jupyter Lab is a more feature rich environment and allows you to edit more things than just Jupyter Notebooks. It also allows you to view your filesystem while you’re working.</p><p id="26cf8344-0e1c-46bb-b7e6-10aa8dda0e5f" class="">
+</p><p id="380997bf-26b7-42d8-99a0-e4110a37b883" class="">For this workshop, you can definitely use either. JupyterLab is better though just saying 😛.</p><h1 id="2bf4b26c-cad0-48a9-bd9e-88a2aa36ab5e" class="">You’re done?</h1><p id="c93988a2-a9b3-4903-805c-03aafb6aa749" class=""><strong>If you could take &lt;2 min to fill out this short survey (which will help us design parts 1 and 2)</strong></p><figure id="186586fd-460e-4748-884e-2d59c8e11fd7"><a href="https://forms.gle/G9EjCaShtVVYhsyGA" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">MU Python Series | Part 0 Survey</div><div class="bookmark-description">A bit of feedback on Part 0 of the workshop. (2 mins)</div></div><div class="bookmark-href"><img src="https://ssl.gstatic.com/docs/spreadsheets/forms/favicon_qp2.png" class="icon bookmark-icon"/>https://forms.gle/G9EjCaShtVVYhsyGA</div></div><img src="https://lh6.googleusercontent.com/hPDlcB6wsn60GFqOCeOcYSTzmGzgPCEZoKXx1EDa2xJ3Hs74t8I6SkkbvxeYnbCwEGGX0NnkqG8=w1200-h630-p" class="bookmark-image"/></a></figure><hr id="2675a5aa-2c2d-4ad0-a470-38ab27ab7a4b"/><p id="f9d54596-2626-4ad5-92f9-06d46f26ec33" class="">Awesome! This workshop is pretty lean, mainly focussing on getting a working Jupyter environment up and running so we don’t need to worry about it/debug individual installations in workshop 1.</p><p id="fb8c7c95-8850-44c2-8a65-857b474b721e" class="">
+</p><p id="d43b005a-ad4b-468e-8542-4e193763c500" class="">Feel free to look up keyboard shortcuts and commands for your new Jupyter environment! Next workshop will go more in depth into how Jupyter fits into the bigger picture, as well as how to use it effectively.</p><p id="f21dac00-d74f-4a9e-b677-fca735d174b2" class="">
+</p><p id="fac9d725-1d45-4863-9b6e-9f95b6cfdf6e" class="">See you next time 🥳🥳🥳🥳</p><p id="a0a0d470-1c3c-4c90-8eda-b2598f2cb974" class="">
+</p></div></article></body></html>
