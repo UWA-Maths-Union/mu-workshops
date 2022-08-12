@@ -13,7 +13,7 @@ All workshop resources are stored in this GitHub repo, but the way that GitHub w
 - Python workshop series:
   - [📚 Resources (all parts)](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/python)
   - Part 0: Your first Jupyter environment
-    - No recording (comprehensive resource in link above)
+    - No recording ([Notion document](https://statuesque-bubbler-6af.notion.site/05daea2a53594b578b3b920a6b1095c2) or HTML version in resource link above)
   - Part 1: Base Python
     - [▶ Video](https://youtu.be/5wpfkDsex8g)
   - Part 2: Scientific Python
