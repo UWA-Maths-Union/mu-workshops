@@ -17,7 +17,7 @@ All workshop resources are stored in this GitHub repo, but the way that GitHub w
   - Part 1: Base Python
     - [▶ Video](https://youtu.be/5wpfkDsex8g)
   - Part 2: Scientific Python
-    - Coming soon!
+    - [▶ Video](https://youtu.be/tZbDBLmpfkM)
 
 ## pre-2022 workshops
 - LaTeX 2021
