@@ -6,12 +6,12 @@ All workshop resources are stored in this GitHub repo, but the way that GitHub w
 ## 2022 workshops
 - LaTeX workshop:
   - [▶ Video](https://youtu.be/2Yu7ZgBFVvY)
-  - [📚 Resources](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/latex)
+  - [📚 Resources](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/latex)
 - Mathematica Workshop:
   - [▶ Video](https://youtu.be/BdJwVogTtlo)
-  - [📚 Resources](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/mathematica)
+  - [📚 Resources](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/mathematica)
 - Python workshop series:
-  - [📚 Resources (all parts)](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/python)
+  - [📚 Resources (all parts)](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/2022/python)
   - Part 0: Your first Jupyter environment
     - No recording ([Notion document](https://statuesque-bubbler-6af.notion.site/05daea2a53594b578b3b920a6b1095c2) or HTML version in resource link above)
   - Part 1: Base Python
@@ -21,4 +21,4 @@ All workshop resources are stored in this GitHub repo, but the way that GitHub w
 
 ## pre-2022 workshops
 - LaTeX 2021
-  - [📚 Resources](https://downgit.github.io/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/pre-2022/2021-latex)
+  - [📚 Resources](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/UWA-Maths-Union/mu-workshops/tree/main/pre-2022/2021-latex)
